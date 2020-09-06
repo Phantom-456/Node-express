@@ -2,6 +2,9 @@ const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
+const hostname = 'localhost';
+const port = 3000;
+
 const server = http.createServer((req, res) => {
   console.log('Request for ' + req.url + ' by method ' + req.method);
 
@@ -39,6 +42,9 @@ const server = http.createServer((req, res) => {
       res.end('<html><body><h1>Error 404: ' + req.method + 
               ' not supported</h1></body></html>');
   }
+});
+server.listen(port,hostname, () => {
+    console.log(`server running at http://${hostname}:${port}`)
 });
 /*
 const http = require("http");
